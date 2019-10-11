@@ -1,4 +1,4 @@
-package com.yuzo.lib.ui
+package com.yuzo.lib.ui.fragment
 
 import android.content.Context
 import android.os.Bundle
@@ -8,12 +8,15 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import com.yuzo.lib.ui.view.LoadingDialog
 
 /**
  * Author: yuzo
  * Date: 2019-09-25
  */
 abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
+    private var mLoadingDialog: LoadingDialog? = null
+
     abstract val layoutId: Int
 
     open var mContext: Context? = null
@@ -42,7 +45,27 @@ abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
         initView()
     }
 
-    open fun initView() {}
+    open fun initView() {
+        mContext?.apply {
+            mLoadingDialog = LoadingDialog(this)
+        }
+    }
 
     open fun initData(binding: T) {}
+
+    open fun showLoading() {
+        activity?.apply {
+            if (!isFinishing) {
+                mLoadingDialog?.show()
+            }
+        }
+    }
+
+    open fun hideLoading() {
+        activity?.apply {
+            if (!isFinishing) {
+                mLoadingDialog?.dismiss()
+            }
+        }
+    }
 }

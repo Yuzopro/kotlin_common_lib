@@ -1,4 +1,4 @@
-package com.yuzo.lib.ui
+package com.yuzo.lib.ui.view
 
 import android.content.Context
 import android.util.AttributeSet

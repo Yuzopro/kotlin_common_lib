@@ -1,7 +1,8 @@
-package com.yuzo.lib.ui
+package com.yuzo.lib.ui.view
 
 import android.app.Dialog
 import android.content.Context
+import com.yuzo.lib.ui.R
 
 /**
  * Author: yuzo
@@ -13,5 +14,6 @@ class LoadingDialog constructor(context: Context) : Dialog(context) {
 
         setCanceledOnTouchOutside(false)
         window?.setBackgroundDrawableResource(R.drawable.drawable_transparent)
+        window?.setDimAmount(0.0f)
     }
 }

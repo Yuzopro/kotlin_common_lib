@@ -1,4 +1,4 @@
-package com.yuzo.lib.ui
+package com.yuzo.lib.ui.activity
 
 import android.content.Context
 import android.os.Build
@@ -8,7 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.yuzo.lib.tool.statusBarLightMode
+import com.yuzo.lib.ui.R
 import com.yuzo.lib.ui.util.setColorNoTranslucent
+import com.yuzo.lib.ui.view.LoadingDialog
 import kotlinx.android.synthetic.main.activity_base_layout.*
 
 /**
